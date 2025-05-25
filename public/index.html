@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Uncomment if you want your page to NOT be indexed by search engines: -->
+  <!-- <meta name="robots" content="none"> -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Feel free to change the title below -->
+  <title>Arctic Tracer Visualization</title>
+
+  <!-- Uncomment if using d3: -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+
+</head>
+
+<!------------------------------------------------------------>
+<!-- You are free to modify this template however you want! -->
+<!------------------------------------------------------------>
+
+<body>
+  <header>
+    <h1><a href=".">Arctic Tracer Map</a></h1>
+
+    <p>
+      <strong>Team Members</strong>: Ayden van den Berg, Brenda Qiu, Carlyn Schmidgall, Juejue Wang
+    </p>
+
+  </header>
+
+<!--  <div class="controls">-->
+<!--    <div id="slider-container"></div>-->
+<!--    <div id="controls-container"></div>-->
+<!--  </div>-->
+
+<!--  <div id="legend"></div>-->
+<!--  <svg width="800" height="800"></svg>-->
+<!--  <div id="tooltip" style="position: absolute; visibility: hidden;"></div>-->
+
+  <div class="form-controls">
+  <div class="form-group">
+    <label for="tracer-select">Select tracer:</label>
+    <select id="tracer-select">
+      <option value="Bering">Bering</option>
+      <option value="Barents">Barents</option>
+      <option value="Fram">Fram</option>
+      <option value="Davis">Davis</option>
+      <option value="FuryHecla">FuryHecla</option>
+      <option value="Mackenzie">Mackenzie</option>
+      <option value="Lena">Lena</option>
+      <option value="Yenesei">Yenesei</option>
+      <option value="Ob">Ob</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <div class="depth-controls">
+      <div>
+        <label for="min-depth">Min Depth:</label>
+        <input type="number" id="min-depth" min="0" step="1" value="0">
+      </div>
+      <div>
+        <label for="max-depth">Max Depth:</label>
+        <input type="number" id="max-depth" min="0" step="1" value="1000">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group time-slider-container">
+  <label for="time-slider">Select Time Index:</label>
+  <div class="slider-wrapper">
+    <input type="range" min="0" max="71" value="0" id="time-slider" step="1" list="time-ticks">
+    <datalist id="time-ticks">
+      <option value="0">0</option>
+      <option value="12">12</option>
+      <option value="24">24</option>
+      <option value="36">36</option>
+      <option value="48">48</option>
+      <option value="60">60</option>
+      <option value="71">71</option>
+      </datalist>
+    <div class="tick-marks">
+      <span>0</span>
+      <span>12</span>
+      <span>24</span>
+      <span>36</span>
+      <span>48</span>
+      <span>60</span>
+      <span>71</span>
+    </div>
+  </div>
+</div>
+
+  <div>
+    <svg id="vertical-profile" width="400" height="300"></svg>
+    <svg id="time-series" width="400" height="300"></svg>
+    <svg id="heatmap" width="400" height="300"></svg>
+  </div>
+
+  <div id="tooltip" style="position: absolute; opacity: 0; background: white; padding: 5px; border: 1px solid #ccc; border-radius: 3px; pointer-events: none;"></div>
+
+  <script src="main.js"></script>
+
+  <footer>
+    <p>
+      <a href="https://gitlab.cs.washington.edu/cse512/25sp/a3/arctic-ocean-gateway-tracers">Repository</a>
+      <br>
+      <a href="https://courses.cs.washington.edu/courses/cse512/25sp/">CSE 512 Data Visualization</a>
+      <br>
+      <a href="https://www.washington.edu">University of Washington</a>
+    </p>
+  </footer>
+</body>
+
+</html>
